@@ -12,16 +12,16 @@
   --just-gray: hsla(216, 20%, 69%, 1.00);
   --dark-grey: hsla(217, 15%, 52%, 1.00);
   --max-length: 1200px;
+  --current-bg: var(--light-grey);
+  --current-card-bg: var(--just-white);
+  --current-font-color: var(--very-dark-blue);
+  --box-shandow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 }
 
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
-body {
-  padding: 0;
-  margin: 0;
-}
 
 h1,h2,h3,h4,h5,h6,p,span,div {
   margin: 0;
@@ -32,6 +32,19 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+html[data-theme='dark'] {
+  --current-bg: var(--midnight);
+  --current-card-bg: var(--very-dark-blue);
+  --current-font-color: var(--just-white);
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: var(--current-bg);
+  color: var(--current-font-color);
 }
 
 
