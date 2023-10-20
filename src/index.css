@@ -11,11 +11,18 @@
   --light-grey: hsla(210, 22%, 96%, 1.00);
   --just-gray: hsla(216, 20%, 69%, 1.00);
   --dark-grey: hsla(217, 15%, 52%, 1.00);
-  --max-length: 1200px;
+  --max-length: 1110px;
   --current-bg: var(--light-grey);
   --current-card-bg: var(--just-white);
   --current-font-color: var(--very-dark-blue);
   --box-shandow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
+  --icon-filter-color: var(--dark-grey);
+  --mercury: hsla(200, 6%, 90%, 1.00);
+  --black-rock: hsla(220, 15%, 20%, 1.00);
+  --current-check-bg: var(--mercury);
+  --zircon: hsla(207, 15%, 88%, 1.00);
+  --ebony-clay: hsla(216, 21%, 18%, 1.00);
+  --filter-section-borders-color: var(--zircon);
 }
 
 *, *::before, *::after {
@@ -34,10 +41,17 @@ ul {
   padding: 0;
 }
 
+a {
+    text-decoration: none;
+}
+
 html[data-theme='dark'] {
   --current-bg: var(--midnight);
   --current-card-bg: var(--very-dark-blue);
   --current-font-color: var(--just-white);
+  --icon-filter-color: var(--just-white);
+  --current-check-bg: var(--black-rock);
+  --filter-section-borders-color: var(--ebony-clay);
 }
 
 body {

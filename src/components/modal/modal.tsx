@@ -38,8 +38,7 @@ export default function Modal (props: Props) {
                   width: '100%',
                   maxWidth: '600px',
                   backgroundColor: '#fff',
-                  padding: '20px',
-                  borderRadius: '26px',
+                  borderRadius: '6px',
                   boxShadow: '0 2px 6px rgba(0, 0, 0, 0.2)'
                 }}
                 transition={{ type: 'spring', stiffness: 300, damping: 30 }}

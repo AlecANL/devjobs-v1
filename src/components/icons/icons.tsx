@@ -21,7 +21,7 @@ export const IconMoon = () => {
 export const IconFilter = () => {
   return (
     <>
-      <svg aria-hidden={true} width="20" height="20" fill="none">
+      <svg aria-hidden={true} width="20" height="20">
         <path fill='currentColor' d="M19.108 0H.86a.86.86 0 0 0-.764.455.833.833 0 0 0 .068.884l6.685 9.202.007.01c.242.32.374.708.375 1.107v7.502a.825.825 0 0 0 .248.594c.16.157.378.246.605.246.116 0 .23-.023.337-.066l3.756-1.4c.337-.1.56-.41.56-.784v-6.092c0-.399.132-.787.375-1.108l.007-.009 6.685-9.202c.19-.26.217-.6.068-.884A.86.86 0 0 0 19.108 0Z"/>
       </svg>
     </>
@@ -43,6 +43,16 @@ export const IconLocation = () => {
     <>
       <svg width="17" height="24" fill="none">
         <path fill='currentColor' fillRule="evenodd" d="M8.448 0a8.3 8.3 0 0 1 5.91 2.451c2.922 2.925 3.285 8.427.777 11.774l-6.687 9.669-6.697-9.682c-2.499-3.334-2.136-8.836.786-11.76A8.3 8.3 0 0 1 8.447 0ZM5.474 8.29a3.057 3.057 0 0 0 3.05 3.056 3.057 3.057 0 0 0 3.052-3.055 3.057 3.057 0 0 0-3.051-3.055 3.057 3.057 0 0 0-3.051 3.055Z" clipRule="evenodd"/>
+      </svg>
+    </>
+  )
+}
+
+export const IconCheck = () => {
+  return (
+    <>
+      <svg aria-hidden={true} width="15" height="12" fill="none">
+        <path stroke="#fff" strokeWidth="2" d="m1 6.57 3.572 3.572L13.714 1"/>
       </svg>
     </>
   )

@@ -5,6 +5,7 @@ export const SwitchThemeStyled = styled.div`
   display: flex;
   align-items: center;
   gap: .5rem;
+  flex: .1;
 `
 
 export const SwitchThemeInputStyled = styled.input`

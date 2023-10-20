@@ -1,13 +1,14 @@
-import { type ChangeEvent, lazy, Suspense, useEffect, useMemo, useState } from 'react'
+import { lazy, Suspense, useEffect, useState } from 'react'
 import { type Job } from '@models/job.interface.ts'
 import { type JobState } from '@models/job-state.interface.ts'
 import { JobCard } from '@components/job-card/job-card.tsx'
 import { HomeMain, JobList } from '@pages/home/home.styled.tsx'
-import { IconFilter, IconLocation, IconSearch } from '@components/icons/icons.tsx'
 import { createPortal } from 'react-dom'
 import { useModal } from '@hooks/use-modal.ts'
+import { Filters } from '@components/filters'
 
 const ModalLazy = lazy(async () => await import('@components/modal'))
+const ModalFilters = lazy(async () => await import('@components/modal-filter'))
 
 export default function Home () {
   const [state, setState] = useState<JobState>({
@@ -16,23 +17,7 @@ export default function Home () {
     error: false
   })
 
-  const [filter, setFilter] = useState({
-    title: '',
-    location: '',
-    fullTime: false
-  })
-
   const { openModal, toggleModal } = useModal()
-
-  const handleFormControlChange = (event: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-    const { type, name } = event.currentTarget
-    const isChecked = (event.target as HTMLInputElement).checked
-    const newValue = type === 'checkbox' ? isChecked : event.target.value
-    setFilter({
-      ...filter,
-      [name]: newValue
-    })
-  }
 
   const getJobs = async () => {
     try {
@@ -61,18 +46,14 @@ export default function Home () {
       })
   }, [])
 
-  const locations = useMemo(() => {
-    return Array.from(new Set(state.jobs.map(job => job.location)))
-  }, [state])
-
-  const filteredJobs = useMemo(() => {
-    return state.jobs.filter(job => {
-      const titleMatch = job.position.toLowerCase().includes(filter.title.toLowerCase())
-      const locationMatch = job.location.toLowerCase().includes(filter.location.toLowerCase())
-      const fullTimeMatch = filter.fullTime ? job.contract === 'Full Time' : true
-      return titleMatch && locationMatch && fullTimeMatch
-    })
-  }, [filter, state])
+  // const filteredJobs = useMemo(() => {
+  //   return state.jobs.filter(job => {
+  //     const titleMatch = job.position.toLowerCase().includes(filter.title.toLowerCase())
+  //     const locationMatch = job.location.toLowerCase().includes(filter.location.toLowerCase())
+  //     const fullTimeMatch = filter.fullTime ? job.contract === 'Full Time' : true
+  //     return titleMatch && locationMatch && fullTimeMatch
+  //   })
+  // }, [filter, state])
 
   const $modalContent = document.querySelector('#modal')
 
@@ -82,60 +63,17 @@ export default function Home () {
         createPortal(
           <Suspense fallback={null}>
             <ModalLazy isOpen={openModal} onClose={toggleModal}>
-              <div>
-                <div>
-                  <IconLocation/>
-                  <select name='location' value={filter.location} onChange={handleFormControlChange}>
-                    <option value=''>Filter by location</option>
-                    {
-                      locations.map((location) => (
-                        <option key={location} value={location}>{location}</option>
-                      ))
-                    }
-                  </select>
-                </div>
-                <div>
-                  <label htmlFor='fullTime' />
-                  <label htmlFor='fullTime'>Full time only</label>
-                  <input name='fullTime' checked={filter.fullTime} onChange={handleFormControlChange} id='fullTime' type='checkbox'/>
-                </div>
-                <button onClick={toggleModal}>Search</button>
-              </div>
+              <ModalFilters jobs={state.jobs} onClose={toggleModal}/>
             </ModalLazy>
           </Suspense>,
           $modalContent as HTMLElement
         )
       }
-      <section>
-        <div>
-          <IconSearch/>
-          <input name='title' value={filter.title} onChange={handleFormControlChange} type='search' placeholder='Senior software enginner...'/>
-        </div>
-        <button onClick={toggleModal} aria-label='modal-filters'>
-          <IconFilter/>
-        </button>
-
-        <div>
-          <IconLocation/>
-          <select name='location' value={filter.location} onChange={handleFormControlChange}>
-            <option value=''>Filter by location</option>
-            {
-              locations.map((location) => (
-                <option key={location} value={location}>{location}</option>
-              ))
-            }
-          </select>
-        </div>
-        <div>
-          <label htmlFor='fullTime' />
-          <label htmlFor='fullTime'>Full time only</label>
-          <input name='fullTime' checked={filter.fullTime} onChange={handleFormControlChange} id='fullTime' type='checkbox'/>
-        </div>
-      </section>
+      <Filters jobs={state.jobs} toggleModal={toggleModal} />
       <HomeMain>
         <JobList>
           {
-            filteredJobs.map(job => (
+            state.jobs.map(job => (
               <JobCard key={job.id} job={job}/>
             ))
           }

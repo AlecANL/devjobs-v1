@@ -11,6 +11,15 @@ export const HeaderStyled = styled.header`
 `
 
 export const HeaderContainerStyled = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem 2rem;
   max-inline-size: var(--max-length);
   margin: 0 auto;
+  color: var(--just-white);
+  
+  h1, a {
+    color: inherit;
+  }
 `
