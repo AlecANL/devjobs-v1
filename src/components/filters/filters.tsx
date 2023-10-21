@@ -26,7 +26,7 @@ export function Filters (props: Props) {
       <FiltersContainer>
         <FiltersContentWrapper>
           <TitleFilter onFieldChange={onChangeFiled} filterValue={filtersValue.title}/>
-          <Button className='btn-filters' onClick={toggleModal} aria-label='modal-filters'>
+          <Button data-testid='modal-filters' className='btn-filters' onClick={toggleModal} aria-label='modal-filters'>
             <IconFilter/>
           </Button>
           <LocationFilter onFieldChange={onChangeFiled} options={locations} filterValue={filtersValue.location}/>

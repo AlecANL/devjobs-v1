@@ -47,7 +47,9 @@ export const FilterCheckLabel = styled.label`
     visibility: hidden;
   }
 `
-export const FilterTextLabel = styled.label`
+export const FilterTextLabel = styled.label<{
+  ['datatest-id']?: string
+}>`
   font-weight: bold;
   font-size: 1rem;
 `

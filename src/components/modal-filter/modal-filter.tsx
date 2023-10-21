@@ -28,16 +28,16 @@ export default function ModalFilter (props: Props) {
 
   return (
     <>
-      <ModalFilterStyled onSubmit={onSubmitted}>
+      <ModalFilterStyled datatest-id='form-modal-filters' onSubmit={onSubmitted}>
         <LocationFilter
           onFieldChange={onFieldChange}
-          className='visibility'
+          className='visibility location-mobile'
           options={locations}
           filterValue={filterValue.location}
         />
         <FullTimeFilter
           onFieldChange={onFieldChange}
-          className='visibility'
+          className='visibility full-time-mobile'
           filterValue={filterValue.fullTime}/>
         <Button>Search</Button>
       </ModalFilterStyled>

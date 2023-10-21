@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 
-export const ModalFilterStyled = styled.form`
+export const ModalFilterStyled = styled.form<{
+  ['datatest-id']?: string
+}>`
   display: flex;
   flex-direction: column;
   padding-block: 0 20px;

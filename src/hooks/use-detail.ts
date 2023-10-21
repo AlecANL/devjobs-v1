@@ -38,6 +38,12 @@ export function useDetailJob (id: string | undefined) {
       })
   }, [id])
 
+  useEffect(() => {
+    if (jobState.job) {
+      document.title = `Devjobs | ${jobState.job.position}`
+    }
+  }, [id, jobState])
+
   return {
     jobState
   }

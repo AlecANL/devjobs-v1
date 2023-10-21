@@ -17,7 +17,7 @@ export default function Home () {
 
   return (
     <>
-      {
+       {
         createPortal(
           <Suspense fallback={null}>
             <ModalLazy isOpen={openModal} onClose={toggleModal}>
@@ -31,14 +31,15 @@ export default function Home () {
           </Suspense>,
           $modalContent as HTMLElement
         )
-      }
+       }
+
       <Filters
         onChangeFiled={handleFormControlChange}
         filtersValue={filter}
         jobs={jobs}
         toggleModal={toggleModal} />
       <HomeMain>
-        <JobList>
+        <JobList data-testid='listJobs' aria-label='list of jobs'>
           {
             filteredJobs.map(job => (
               <JobCard key={job.id} job={job}/>

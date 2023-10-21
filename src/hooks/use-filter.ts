@@ -16,6 +16,10 @@ export function useFilter () {
     getJobs().then(jobs => { setJobs(jobs) })
   }, [])
 
+  useEffect(() => {
+    document.title = 'Devjobs | Home'
+  }, [])
+
   const handleFormControlChange = (event: onChangeFilter) => {
     const { type, name } = event.currentTarget
     const isChecked = (event.target as HTMLInputElement).checked

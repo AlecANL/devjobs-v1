@@ -17,7 +17,9 @@ export const TitleFilterStyled = styled.div`
   }
 `
 
-export const TitleFilterInput = styled.input`
+export const TitleFilterInput = styled.input<{
+  ['datatest-id']?: string
+}>`
   min-block-size: 2.5rem;
   inline-size: 100%;
   border-color: transparent;

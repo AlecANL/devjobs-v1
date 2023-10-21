@@ -71,7 +71,7 @@ body {
   margin: 0;
   background-color: var(--current-bg);
   color: var(--current-font-color);
-  font-family: 'KubhmSans', sans-serif;
+  font-family: 'KubhmSans', system-ui;
 }
 
 
@@ -92,6 +92,7 @@ body {
   src: url('assets/fonts/KumbhSans-Regular.woff2');
   font-weight: 400;
   font-style: normal;
+  font-display: swap;
 }
 
 @font-face {
@@ -99,4 +100,5 @@ body {
   src: url('assets/fonts/KumbhSans-Bold.woff2');
   font-weight: 700;
   font-style: normal;
+  font-display: swap;
 }

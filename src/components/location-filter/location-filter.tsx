@@ -15,7 +15,7 @@ export function LocationFilter (props: Props) {
     <>
       <LocationFilterStyled className={className}>
         <IconLocation/>
-        <LocationFilterSelect value={filterValue} onChange={onFieldChange} name='location'>
+        <LocationFilterSelect data-testid='location' value={filterValue} onChange={onFieldChange} name='location'>
           <option value=''>Filter by location</option>
           {
             options.map((option) => (

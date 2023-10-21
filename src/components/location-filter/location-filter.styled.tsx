@@ -22,7 +22,9 @@ export const LocationFilterStyled = styled.div`
   }
 `
 
-export const LocationFilterSelect = styled.select`
+export const LocationFilterSelect = styled.select<{
+  ['datatest-id']?: string
+}>`
   flex: 1;
   font-size: 14px;
   border-color: transparent;

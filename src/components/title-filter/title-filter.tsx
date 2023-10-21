@@ -13,7 +13,7 @@ export function TitleFilter (props: Props) {
     <>
       <TitleFilterStyled>
         <IconSearch/>
-        <TitleFilterInput value={filterValue} onChange={onFieldChange} name='title' type='search' placeholder='Senior software enginner...'/>
+        <TitleFilterInput value={filterValue} onChange={onFieldChange} data-testid='title' name='title' type='search' placeholder='Senior software enginner...'/>
       </TitleFilterStyled>
     </>
   )

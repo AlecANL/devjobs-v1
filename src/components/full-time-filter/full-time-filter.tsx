@@ -23,7 +23,7 @@ export function FullTimeFilter (props: Props) {
         <FilterCheckLabel htmlFor={inputId} >
           <IconCheck/>
         </FilterCheckLabel>
-        <FilterTextLabel htmlFor={inputId}>Full time only</FilterTextLabel>
+        <FilterTextLabel data-testid='fullTime' htmlFor={inputId}>Full time only</FilterTextLabel>
       </FilterFullTimeContainer>
     </>
   )

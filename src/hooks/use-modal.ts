@@ -17,6 +17,18 @@ export function useModal () {
     }
   }, [openModal])
 
+  useEffect(() => {
+    window.matchMedia('(min-width: 768px)').addEventListener('change', (e) => {
+      if (e.matches) {
+        setOpenModal(false)
+      }
+    })
+
+    return () => {
+      window.matchMedia('(min-width: 768px)').removeEventListener('change', () => {})
+    }
+  }, [])
+
   const handleKeyDown = (event: KeyboardEvent) => {
     if (event.key === 'Escape') {
       closeModal()
