@@ -16,7 +16,8 @@ export default function Detail () {
   const { id } = useParams()
   const { jobState: { job, error, loading } } = useDetailJob(id)
 
-  const imageJob = (imgUrl: string | undefined) => `/public${String(imgUrl).slice(1)}`
+  const localHostUrl = import.meta.env.PROD ? '' : 'public'
+  const imageJob = (imgUrl: string | undefined) => `/${localHostUrl}${String(imgUrl).slice(1)}`
   const isShowJob = !loading && !error && job
   const isShowError = (!loading && error && !job) || (!loading && !error && !job)
   const isLoading = loading && !error && !job
