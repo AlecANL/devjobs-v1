@@ -119,7 +119,7 @@ export default function Detail () {
                   <h2>{job?.company}</h2>
                   <span>{job?.location}</span>
                 </FooterJobDetail>
-                <LinkStyled href={job?.website}>apply now</LinkStyled>
+                <LinkStyled target='_blank' href={job?.website}>apply now</LinkStyled>
               </FooterWrapperStyled>
             </FooterStyled>
           </>
