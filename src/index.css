@@ -12,6 +12,7 @@
   --just-gray: hsla(216, 20%, 69%, 1.00);
   --dark-grey: hsla(217, 15%, 52%, 1.00);
   --max-length: 1110px;
+  --max-width-detail: 730px;
   --current-bg: var(--light-grey);
   --current-card-bg: var(--just-white);
   --current-font-color: var(--very-dark-blue);
@@ -23,6 +24,9 @@
   --zircon: hsla(207, 15%, 88%, 1.00);
   --ebony-clay: hsla(216, 21%, 18%, 1.00);
   --filter-section-borders-color: var(--zircon);
+  --selago: hsla(235, 62%, 96%, 1.00);
+  --midnight-express: hsla(227, 30%, 18%, 1.00);
+  --current-secondary-color: var(--selago);
 }
 
 *, *::before, *::after {
@@ -33,16 +37,23 @@
 h1,h2,h3,h4,h5,h6,p,span,div {
   margin: 0;
   padding: 0;
+  font-family: inherit;
 }
 
-ul {
+ul, ol {
   list-style: none;
   margin: 0;
   padding: 0;
+  font-family: inherit;
+}
+
+button, input, select {
+  font-family: inherit;
 }
 
 a {
-    text-decoration: none;
+  font-family: inherit;
+  text-decoration: none;
 }
 
 html[data-theme='dark'] {
@@ -52,6 +63,7 @@ html[data-theme='dark'] {
   --icon-filter-color: var(--just-white);
   --current-check-bg: var(--black-rock);
   --filter-section-borders-color: var(--ebony-clay);
+  --current-secondary-color: var(--midnight-express);
 }
 
 body {
@@ -59,6 +71,7 @@ body {
   margin: 0;
   background-color: var(--current-bg);
   color: var(--current-font-color);
+  font-family: 'KubhmSans', sans-serif;
 }
 
 
@@ -72,4 +85,18 @@ body {
   :root {
     --current-pattern: var(--desktop-pattern);
   }
+}
+
+@font-face {
+  font-family: 'KubhmSans';
+  src: url('assets/fonts/KumbhSans-Regular.woff2');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'KubhmSans';
+  src: url('assets/fonts/KumbhSans-Bold.woff2');
+  font-weight: 700;
+  font-style: normal;
 }

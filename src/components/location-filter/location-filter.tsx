@@ -1,21 +1,21 @@
 import { IconLocation } from '@components/icons/icons.tsx'
-import { type onChangeFilter } from '@models/job-state.interface.ts'
 import { LocationFilterSelect, LocationFilterStyled } from '@components/location-filter/location-filter.styled.tsx'
+import { type onChangeFilterEvent } from '@models/job-state.interface.ts'
 
 interface Props {
   options: Array<string>
   filterValue: string
   className?: string
-  onChange: (value: onChangeFilter) => void
+  onFieldChange: onChangeFilterEvent
 }
 export function LocationFilter (props: Props) {
-  const { options, filterValue, onChange, className } = props
+  const { options, className, onFieldChange, filterValue } = props
 
   return (
     <>
       <LocationFilterStyled className={className}>
         <IconLocation/>
-        <LocationFilterSelect name='location' value={filterValue} onChange={onChange}>
+        <LocationFilterSelect value={filterValue} onChange={onFieldChange} name='location'>
           <option value=''>Filter by location</option>
           {
             options.map((option) => (

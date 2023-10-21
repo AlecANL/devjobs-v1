@@ -3,23 +3,23 @@ import {
   FilterFullTimeContainer,
   FilterTextLabel
 } from '@components/full-time-filter/full-time-filter.styled.tsx'
-import { type onChangeFilter } from '@models/job-state.interface.ts'
 import { useId } from 'react'
 import { IconCheck } from '@components/icons/icons.tsx'
+import { type onChangeFilterEvent } from '@models/job-state.interface.ts'
 
 interface Props {
   filterValue: boolean
-  onChange: (value: onChangeFilter) => void
+  onFieldChange: onChangeFilterEvent
   className?: string
 }
 export function FullTimeFilter (props: Props) {
   const inputId = useId()
-  const { filterValue, onChange, className } = props
+  const { className, filterValue, onFieldChange } = props
 
   return (
     <>
       <FilterFullTimeContainer className={className}>
-         <input name='fullTime' checked={filterValue} onChange={onChange} id={inputId} type='checkbox'/>
+         <input checked={filterValue} onChange={onFieldChange} name='fullTime' id={inputId} type='checkbox'/>
         <FilterCheckLabel htmlFor={inputId} >
           <IconCheck/>
         </FilterCheckLabel>

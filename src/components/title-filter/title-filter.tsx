@@ -1,19 +1,19 @@
-import { TitleFilterInput, TitleFilterStyled } from '@components/title-filter/title-filter.styled.tsx'
 import { IconSearch } from '@components/icons/icons.tsx'
-import { type onChangeFilter } from '@models/job-state.interface.ts'
+import { TitleFilterInput, TitleFilterStyled } from '@components/title-filter/title-filter.styled.tsx'
+import { type onChangeFilterEvent } from '@models/job-state.interface.ts'
 
 interface Props {
   filterValue: string
-  onChange: (value: onChangeFilter) => void
+  onFieldChange: onChangeFilterEvent
 }
 export function TitleFilter (props: Props) {
-  const { filterValue, onChange } = props
+  const { filterValue, onFieldChange } = props
 
   return (
     <>
       <TitleFilterStyled>
         <IconSearch/>
-        <TitleFilterInput name='title' value={filterValue} onChange={onChange} type='search' placeholder='Senior software enginner...'/>
+        <TitleFilterInput value={filterValue} onChange={onFieldChange} name='title' type='search' placeholder='Senior software enginner...'/>
       </TitleFilterStyled>
     </>
   )

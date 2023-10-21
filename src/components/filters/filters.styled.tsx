@@ -41,8 +41,33 @@ export const FilterSearchSection = styled.div`
   align-items: center;
   gap: 1.5rem;
   justify-content: center;
+  flex: 1;
+  max-width: 60px;
   
   button {
     flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  button svg path {
+    fill: var(--just-white);
+  }
+  
+  button span {
+    display: none;
+  }
+  
+  @media (min-width: 768px) {
+    max-width: 100%;
+    
+    button svg {
+      display: none;
+    }
+    
+    button span {
+      display: block;
+    }
   }
 `
